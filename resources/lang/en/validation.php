@@ -94,8 +94,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'unique' => '邮箱已被占用',
+        ],
+        'password' => [
+            'min' => '密码不能少于:min个字符',
+            'confirmed' => '两次密码输入不相符',
         ],
     ],
 

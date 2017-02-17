@@ -166,7 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Naux\Mail\SendCloudServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         //
 
         /*
