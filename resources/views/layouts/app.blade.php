@@ -9,10 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -92,6 +91,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('js')
     <script>
         $('#flash-overlay-modal').modal();
     </script>

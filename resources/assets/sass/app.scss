@@ -7,3 +7,31 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../css/select2.min";
+
+.topic{
+  background: #eff6fa;
+  padding: 1px 10px 0;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+  white-space: nowrap;
+  color: #259;
+  &:hover{
+    background: #259;
+    color: #fff;
+  }
+}
+
+.del-form{
+  display: inline-block;
+}
+.edit, .btn-del{
+  display: inline-block;
+  background: transparent;
+  color: #3097D1;
+  border: none;
+  margin-left: 20px;
+  outline: none;
+}

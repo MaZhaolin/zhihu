@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae28c8c5a87aa9584f305b8c86b343bb",
+    "content-hash": "cf799e1038a2d03eb595b6cedc3e7835",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -992,6 +992,42 @@
                 "php"
             ],
             "time": "2017-02-10T20:20:03+00:00"
+        },
+        {
+            "name": "overtrue/laravel-ueditor",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-ueditor.git",
+                "reference": "023a7ccc2e253574b72674c6d55591e14774ab08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/overtrue/laravel-ueditor/023a7ccc2e253574b72674c6d55591e14774ab08.zip",
+                "reference": "023a7ccc2e253574b72674c6d55591e14774ab08",
+                "shasum": ""
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelUEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "UEditor integration for Laravel.",
+            "time": "2015-11-18T10:23:30+00:00"
         },
         {
             "name": "paragonie/random_compat",

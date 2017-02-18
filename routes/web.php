@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'QuestionsController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/email/verify/{token}', ['as' => 'email.verify', 'uses' => 'EmailController@verify']);
+
+Route::resource('questions', 'QuestionsController', ['names' => [
+    'create' => 'question.create',
+    'show' => 'question.show'
+]]);
