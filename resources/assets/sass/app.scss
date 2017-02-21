@@ -33,5 +33,20 @@
   color: #3097D1;
   border: none;
   margin-left: 20px;
-  outline: none;
+}
+.btn{
+  &.focus,
+  &:focus{
+    outline: none;
+    &:active,&.active{
+      outline: none;
+    }
+  }
+  &.active,
+  &:active{
+    outline: none;
+    &:focus,&.focus{
+        outline: none;
+      }
+  }
 }

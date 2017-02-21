@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'confirmation_token'
+        'name', 'email', 'password', 'avatar', 'confirmation_token', 'api_token'
     ];
 
     /**
@@ -43,5 +43,25 @@ class User extends Authenticatable
             $message->from('ins@zhihu.dev', 'ins.zhihu');
             $message->to($this->email);
         });
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function followThis($question)
+    {
+        return $this->follows()->toggle($question);
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(Question::class, 'user_question');
+    }
+
+    public function followed($question)
+    {
+        return !! $this->follows()->where('question_id', $question)->count();
     }
 }

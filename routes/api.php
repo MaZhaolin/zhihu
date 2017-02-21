@@ -23,3 +23,21 @@ Route::get('/topics', function (Request $request) {
         ->get();
     return $topics;
 })->middleware('api');
+
+Route::post('/question/follower', function(Request $request){
+    $user = Auth::guard('api')->user();
+    $followed = $user->followed($request->get('question'));
+    return response()->json(['followed' => !! $followed]);
+})->middleware('auth:api');
+
+Route::post('/question/follow', function(Request $request){
+    $user = Auth::guard('api')->user();
+    $question = \App\Question::find($request->get('question'));
+    $followed = $user->followThis($question);
+    if(count($followed['detached']) > 0){
+        $question->decrement('followers_count');
+        return response()->json(['followed' => false]);
+    }
+    $question->increment('followers_count');
+    return response()->json(['followed' => true]);
+})->middleware('auth:api');

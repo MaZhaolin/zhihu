@@ -8351,6 +8351,21 @@ button.close {
   color: #3097D1;
   border: none;
   margin-left: 20px;
+}
+
+.btn.focus, .btn:focus {
+  outline: none;
+}
+
+.btn.focus:active, .btn.focus.active, .btn:focus:active, .btn:focus.active {
+  outline: none;
+}
+
+.btn.active, .btn:active {
+  outline: none;
+}
+
+.btn.active:focus, .btn.active.focus, .btn:active:focus, .btn:active.focus {
   outline: none;
 }
 

@@ -13,8 +13,8 @@ require('./select2.min');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('question-follow-button', require('./components/QuestionFollowButton.vue'));
 
 const app = new Vue({
-    el: 'body'
-});
+    el: '#app'
+})
