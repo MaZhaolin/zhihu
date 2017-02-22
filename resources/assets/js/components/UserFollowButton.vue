@@ -7,12 +7,11 @@
 
 <script>
     export default {
-        props: ['question'],
+        props: ['user'],
         mounted() {
-
-                this.$http.post('/api/question/follower',{'question': this.question}).then(response => {
-                    this.followed = response.data.followed;
-                })
+            this.$http.get('/api/user/' + this.user + '/follower').then(response => {
+                this.followed = response.data.followed;
+        })
         },
         data() {
             return {
@@ -21,14 +20,14 @@
         },
         computed: {
             text() {
-                return this.followed ? '取消关注' : '关注问题';
+                return this.followed ? '取消关注' : '关注他';
             }
         },
         methods: {
             follow() {
-                this.$http.post('/api/question/follow',{'question': this.question}).then(response => {
+                this.$http.post('/api/user/follow',{'user': this.user}).then(response => {
                     this.followed = response.data.followed;
-                })
+            })
             }
         }
     }

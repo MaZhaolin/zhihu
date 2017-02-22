@@ -39,7 +39,7 @@
                 </div>
                 <div class="panel-body row">
                     <question-follow-button question="{{ $question->id }}" ></question-follow-button>
-                    <a href="#editor" class="btn btn-primary col-md-4 col-md-offset-2">撰写答案</a>
+                    <a href="#editor" class="btn btn-primary col-xs-4 col-xs-offset-2">撰写答案</a>
                 </div>
             </div>
         </div>
@@ -53,6 +53,8 @@
                     @foreach($question->answers as $answer)
                         <div class="media">
                             <div class="media-left">
+                                <user-vote-button answer="{{ $answer->id }}" count="{{ $answer->votes_count
+                                }}"></user-vote-button>
                                 <a href="">
                                     <img class="img-circle" src="{{ $answer->user->avatar }}" alt="{{ $answer->user->name }}"
                                          width="36">
@@ -88,6 +90,47 @@
                         @endif
                     </div>
                     
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h5>关于作者</h5>
+                </div>
+                <div class="panel-body row">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="">
+                                <img width="36" class="img-circle" src="{{ $question->author->avatar }}" alt="{{
+                                $question->author->name
+                                }}">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <div class="media-heading">
+                                <a href="">
+                                    {{ $question->author->name }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="info-item text-center">
+                                <div class="info-text">问题</div>
+                                <div class="info-count">{{ $question->author->questions_count }}</div>
+                            </div>
+                            <div class="info-item text-center">
+                                <div class="info-text">回答</div>
+                                <div class="info-count">{{ $question->author->answers_count }}</div>
+                            </div>
+                            <div class="info-item text-center">
+                                <div class="info-text">关注者</div>
+                                <div class="info-count">{{ $question->author->followers_count }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <user-follow-button user="{{ $question->author->id }}" ></user-follow-button>
+                    <a href="#editor" class="btn btn-default col-xs-4 col-xs-offset-2">发送私信</a>
                 </div>
             </div>
         </div>

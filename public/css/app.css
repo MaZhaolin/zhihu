@@ -8369,4 +8369,23 @@ button.close {
   outline: none;
 }
 
+.media {
+  padding-left: 10px;
+}
+
+.media .media-heading {
+  font-size: 20px;
+}
+
+.media .user-info {
+  display: -webkit-box;
+  display: flex;
+  padding: 15px 0;
+}
+
+.media .user-info .info-item {
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
 /*# sourceMappingURL=app.css.map */

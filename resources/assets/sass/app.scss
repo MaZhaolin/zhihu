@@ -50,3 +50,17 @@
       }
   }
 }
+
+.media{
+  padding-left: 10px;
+  .media-heading{
+    font-size: 20px;
+  }
+  .user-info{
+    display: flex;
+    padding: 15px 0;
+    .info-item{
+      flex: 1;
+    }
+  }
+}

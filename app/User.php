@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
+    public function questions()
+    {
+        $this->hasMany(Question::class);
+    }
+
     public function followThis($question)
     {
         return $this->follows()->toggle($question);
@@ -64,4 +69,33 @@ class User extends Authenticatable
     {
         return !! $this->follows()->where('question_id', $question)->count();
     }
+
+    public function followers(){
+        return $this->belongsToMany(self::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
+    }
+
+    public function followersUser(){
+        return $this->belongsToMany(self::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
+    }
+
+    public function followThisUser($user)
+    {
+        return $this->followers()->toggle($user);
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(Answer::class, 'votes')->withTimestamps();
+    }
+
+    public function voteFor($answer)
+    {
+        return $this->votes()->toggle($answer);
+    }
+
+    public function hasVotedFor($answer)
+    {
+        return !! $this->votes()->where('answer_id', $answer)->count();
+    }
+
 }

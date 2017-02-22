@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
@@ -41,3 +42,10 @@ Route::post('/question/follow', function(Request $request){
     $question->increment('followers_count');
     return response()->json(['followed' => true]);
 })->middleware('auth:api');
+
+
+Route::get('/user/{user}/follower','FollowersController@index');
+Route::post('/user/follow','FollowersController@follow');
+
+Route::get('/answer/{id}/votes/users', 'VotesController@users');
+Route::post('/answer/vote', 'VotesController@vote');
